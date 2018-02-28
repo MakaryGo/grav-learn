@@ -60,7 +60,7 @@ form:
             extension: txt
             body: "{% include 'forms/data.txt.twig' %}"
         - message: Thank you for your feedback!
-        - display: thankyou
+        - display: /thankyou
 
 ---
 
@@ -68,8 +68,9 @@ form:
 
 Regular **markdown** content goes here...
 ```
-
 !!! This is the content of the `form.md` file, when viewed via file-system. To do this via Admin Plugin, open the page in **Expert Mode**, copy the part between the triple dashes `---`, and paste it in the Frontmatter field.
+
+!!!! **Remember:** you have to provide already existing page in the `        - display: /thankyou` section, otherwise submitting this form will produce an error. **Also,** site will crash if the Email plugin won't be configured first.
 
 This is enough to show a form in the page, below the page's content. It is a simple form with a name, email field, two buttons: one to submit the form and one to reset the fields. For more information on the available fields that are provided by the Form plugin, [check out the next section](fields-available).
 
