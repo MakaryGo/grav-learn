@@ -1,12 +1,14 @@
 ---
 title: Grav Development
+page-toc:
+  active: true
 taxonomy:
     category: docs
 ---
 
 If you want to develop with Grav, you will benefit from a more sophisticated setup than the one required for a regular Grav user. This includes just about any type of development, such as: **Grav Core**, **Grav Plugins**, **Grav Skeletons**, or even **Grav Themes**.
 
-First, let us breakdown the various types of development:
+First, let us break down the various types of development:
 
 ## Grav Core
 
@@ -16,32 +18,32 @@ Grav is intentionally focused on working with pages in an efficient manner.  Man
 
 ## Running Tests
 
-First install the development dependencies by running composer install from the Grav root.
+First, install the development dependencies by running composer install from the Grav root.
 
-```
+[prism classes="language-bash command-line"]
 composer install
-```
+[/prism]
 
 Then you can run the tests:
 
-```
+[prism classes="language-bash command-line"]
 composer test
-```
+[/prism]
 
 This will run the full suite of existing tests which should always be executed successfully on any site.
 
 You can also run a single unit test file, e.g.
 
-```
+[prism classes="language-bash command-line"]
 composer test tests/unit/Grav/Common/Markdown/ParsedownTest::testAttributeLinks
-```
+[/prism]
 
 An alternative method to calling these tests is:
 
-```
+[prism classes="language-bash command-line"]
 ./vendor/bin/codecept run
 ./vendor/bin/codecept run tests/unit/Grav/Common/Markdown/ParsedownTest::testAttributeLinks
-```
+[/prism]
 
 
 ## Grav Plugins
@@ -71,11 +73,11 @@ A **Grav Skeleton** is effectively an **all-in-one sample site**.  They include 
 
 Grav was designed to make the process of creating a site as easy as possible. For that reason, everything you need for a site can be contained in the `user` folder.  Each of the skeletons we currently have available are simply a `user` folder on GitHub that we package up with various dependencies (required plugins, and theme) into a package that can be simply unzipped to provide a working example.
 
-These skeletons are a base on which you can grow your site, quickly and efficiently. You aren't locked in to a specific set of features. It is every bit as flexible as any other Grav install.
+These skeletons are a base on which you can grow your site, quickly and efficiently. You aren't locked into a specific set of features. It is every bit as flexible as any other Grav install.
 
 #### Skeleton Requirements
 
-A proper Grav plugin requires certain files in order to function properly, be listed in the Grav repository, and be visible in the Grav admin plugin.  Please ensure your plugin contains all these files:
+A proper Grav skeleton requires certain files in order to function properly, be listed in the Grav repository, and be visible in the Grav admin plugin.  Please ensure your skeleton contains all these files:
 
 * **.dependencies** - A file to define theme and plugin dependencies for this skeleton
 * **blueprints.yaml** - skeleton definition file and form definition file
@@ -112,7 +114,7 @@ _Please note that demo content is not copied when your plugin or theme is instal
 
 ## Theme/Plugin Release Process
 
-When you have created your new theme or plugin and would like to see it added to the [Grav Repository](http://getgrav.org/downloads) there are a few standard things that you need to ensure:
+When you have created your new theme or plugin and would like to see it added to the [Grav Repository](https://getgrav.org/downloads) there are a few standard things that you need to ensure:
 
 1. It is open source with a `LICENSE` file that provides an [MIT](http://en.wikipedia.org/wiki/MIT_License) compatible license [Example Here](https://github.com/getgrav/grav-theme-antimatter/blob/develop/LICENSE)
 2. Contains a `README.md` file with a summary of functionality and instructions on how to install and configure it. [Example Here](https://github.com/getgrav/grav-theme-antimatter/blob/develop/README.md)
@@ -126,9 +128,9 @@ When you have created your new theme or plugin and would like to see it added to
 
 ## ChangeLog Format
 
-The GetGrav.org site uses a custom ChangeLog format that is written in standard markdown but can be manipulated with some simple CSS and [displayed in an attractive format](http://getgrav.org/downloads#changelog).  In order to ensure your ChangeLogs can be parsed and formatted properly, please use this syntax:
+The GetGrav.org site uses a custom ChangeLog format that is written in standard markdown but can be manipulated with some simple CSS and [displayed in an attractive format](https://getgrav.org/downloads#changelog).  In order to ensure your ChangeLogs can be parsed and formatted properly, please use this syntax:
 
-```
+[prism classes="language-markdown line-numbers"]
 # vX.Y.Z
 ## 01/01/2015
 
@@ -143,7 +145,7 @@ The GetGrav.org site uses a custom ChangeLog format that is written in standard 
      * Another bugfix
 
 ...repeat...
-```
+[/prism]
 
 Each section `#new, #improved, #bugfix` are optional, just include the sections you need.
 
@@ -155,23 +157,23 @@ As is the way of things these days, GitHub is going to be your best friend when 
 
 Clone all the repositories you plan to work with into a single `Projects` or `Development` folder on your computer. This will allow our provided tools to find the repositories they need.
 
-!! We use the [GitFlow](http://nvie.com/posts/a-successful-git-branching-model/) branching model for all our Grav development.  The core concept of the GitFlow methodology is that development happens in the `develop` branch, but new features and functionality are created in seperate `feature` branches that are merged into `develop` when complete.  Releases merge `develop` into `master`, and you can apply `hotfix` branches as needed during the release process. Most modern git clients support this. However, we recommend [Atlassian SourceTree](https://www.atlassian.com/software/sourcetree/overview) as it's free, cross-platform, and easy to use.
+!! We use the [GitFlow](http://nvie.com/posts/a-successful-git-branching-model/) branching model for all our Grav development.  The core concept of the GitFlow methodology is that development happens in the `develop` branch, but new features and functionality are created in separate `feature` branches that are merged into `develop` when complete.  Releases merge `develop` into `master`, and you can apply `hotfix` branches as needed during the release process. Most modern git clients support this. However, we recommend [Atlassian SourceTree](https://www.atlassian.com/software/sourcetree/overview) as it's free, cross-platform, and easy to use.
 
 Grav also has some dependencies (dictated by the `.dependencies` file) which include the **Error** and **Problems** plugins, as well as the **Antimatter** theme.  You can follow these instructions to clone these bits on your own computer.
 
 !!!! If you wish to make additions or changes to any of the `getgrav` repositories, you will need to **fork** the appropriate repository and then clone **your fork's url** rather than the `getgrav` repository directly. The example below is using the direct `getgrav` repositories for example only.
 
-```
-$ cd
-$ mkdir Projects
-$ cd Projects
-$ mkdir Grav
-$ cd Grav
-$ git clone https://github.com/getgrav/grav.git
-$ git clone https://github.com/getgrav/grav-plugin-error.git
-$ git clone https://github.com/getgrav/grav-plugin-problems.git
-$ git clone https://github.com/getgrav/grav-theme-antimatter.git
-```
+[prism classes="language-bash command-line"]
+cd
+mkdir Projects
+cd Projects
+mkdir Grav
+cd Grav
+git clone https://github.com/getgrav/grav.git
+git clone https://github.com/getgrav/grav-plugin-error.git
+git clone https://github.com/getgrav/grav-plugin-problems.git
+git clone https://github.com/getgrav/grav-theme-antimatter.git
+[/prism]
 
 This will clone **all 4 repositories** into your `~/Projects/Grav` folder.
 
@@ -179,11 +181,11 @@ Usually, the normal procedure for setting up a test site for Grav is to use the 
 
 There is one extra step required. You must tell the command where it can find your repositories. So, follow these steps to create a configuration file in a new `.grav/` folder which you will need to create in the **root of your home directory**:
 
-```
-$ cd
-$ mkdir .grav
-$ vi .grav/config
-```
+[prism classes="language-bash command-line"]
+cd
+mkdir .grav
+vi .grav/config
+[/prism]
 
 In this file: provide a simple mapping of where the relevant files are located:
 
@@ -193,14 +195,14 @@ github_repos: /Users/your_user/Projects/Grav/
 
 Make sure you **save** this file and that it's readable. You can now set up your **symbolically linked** site where `~/www` is your webroot and `~/www/grav` is the location where your new grav test site will be created:
 
-```
-$ cd ~/Projects/Grav/grav
-$ bin/grav new-project -s ~/www/grav
-```
+[prism classes="language-bash command-line"]
+cd ~/Projects/Grav/grav
+bin/grav new-project -s ~/www/grav
+[/prism]
 
 You should see quite a bit of output like this:
 
-```
+[prism classes="language-text"]
 rhukster@gibblets:~/Projects/Grav/grav(develop○) » bin/grav new-project -s ~/www/grav
 
 Creating Directories
@@ -230,7 +232,7 @@ File Initializing
     /user/config/site.yaml -> Created
     /user/config/system.yaml -> Created
 
-Permisions Initializing
+Permissions Initializing
     bin/grav permissions reset to 755
 
 read local config from /Users/rhuk/.grav/config
@@ -243,11 +245,11 @@ SUCCESS symlinked grav-plugin-problems -> user/plugins/problems
 SUCCESS symlinked grav-plugin-error -> user/plugins/error
 
 SUCCESS symlinked grav-theme-antimatter -> user/themes/antimatter
-```
+[/prism]
 
 As you can see, a number of default directories were created, and an initial `pages` folder was also created. After the base has been set up, the other dependencies are symbolically linked in.
 
-You should be able to point your browser to `http://localhost/grav` and see the test site you just setup. Now, any changes you make in your `~/www/grav` folder will show up ready to commit and push in your cloned repositories.
+You should be able to point your browser to `http://localhost/grav` and see the test site you just set up. Now, any changes you make in your `~/www/grav` folder will show up ready to commit and push in your cloned repositories.
 
 ## Abandoned Resource Protocol
 
@@ -263,7 +265,7 @@ People move on, and user-generated content like plugins and themes may become ab
 
   * Provide the name of the plugin and link to the original repository.
 
-  * Link to your pull request that went unanswered or link to the conversation in which the maintainer has abandoned the resource.
+  * Link to your pull request that went unanswered or a link to the conversation in which the maintainer has abandoned the resource.
 
 4. The Grav maintainers will review the case and let you know if the takeover is approved. If approval is granted, proceed to the next step.
 

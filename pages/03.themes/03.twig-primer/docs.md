@@ -6,7 +6,7 @@ taxonomy:
 
 Twig is a quick, optimized template engine for PHP. It is designed from the ground up to make creating templates easier on both the developer and the designer.
 
-Its easy-to-follow syntax and straightforward processes make it a natural fit for anyone familiar with Smarty, Django, Jinja, Liquid, or Stencil then Twig will likely be a very easy transition for you.
+Its easy-to-follow syntax and straightforward processes make it a natural fit for anyone familiar with Smarty, Django, Jinja, Liquid, or Stencil.
 
 We use it for our Grav templates in part because of its flexibility and inherent security. The fact that it is also one of the fastest template engines for PHP out there made choosing it for use in Grav a no brainer.
 
@@ -31,7 +31,7 @@ Twig has two primary language constraints.
 
 Here is a basic template created using Twig:
 
-``` markup
+[prism classes="language-html line-numbers"]
 <!DOCTYPE html>
 <html>
     <head>
@@ -48,7 +48,7 @@ Here is a basic template created using Twig:
         <h1>Cookies are the best!</h1>
     </body>
 </html>
-```
+[/prism]
 
 In this example, we set the title of the site up as you would with any standard Web page. The difference is that we were able to use simple Twig syntax to present the author's name and create a dynamic list of types of items.
 
@@ -78,19 +78,19 @@ A good use of these tags is to explain what a specific line of code or command d
 
 Here is an example of a comment tag as you would find it in a Twig template file:
 
-```
+[prism classes="language-twig"]
 {# Chocolate Chip Cookies are great! Don't tell anyone! #}
-```
+[/prism]
 
 #### Output Tags
 
-Output tags (`{{ Insert Output Here }}`) set code that is output directly to the browser. This is where you would put anything you want to appear on the front end.
+Output tags (`{{ Insert Output Here }}`) will be evaluated and added to the generated output. This is where you would put anything you want to appear on the front end, or in some other generated content.
 
 Here is an example of output tags being used in a Twig template:
 
-```
+[prism classes="language-twig"]
 My name is {{ name }} and I love cookies.
-```
+[/prism]
 
 The variable `name` has been inserted into this line and will appear to the end user as `My name is Jake and I love cookies.` as `Jake` was the value of the name variable.
 
@@ -102,14 +102,14 @@ Action tags set variables, loop through arrays, and test conditionals. Your `for
 
 This is what an action tag might look like in a Twig template:
 
-```
+[prism classes="language-twig line-numbers"]
 {% set hour = now | date("G") %}
 {% if hour >= 9 and hour < 17 %}
     <p>Time for cookies!</p>
 {% else %}
     <p>Time to bake more cookies!</p>
 {% endif %}
-```
+[/prism]
 
 The initial action tag sets the hour as the current hour in a 24-hour clock. That value is then used to gauge whether it is between 9am and 5pm. If it is, `Time for cookies!` is displayed. If it isn't, `Time to bake more cookies!` is displayed, instead.
 
@@ -121,19 +121,19 @@ Filters are useful, especially when you are using the output tags to display dat
 
 Let's say the value of the `name` variable might include unwanted SGML/XML tags. You can filter them out using the code below:
 
-```
+[prism classes="language-twig"]
 {{ name|striptags }}
-```
+[/prism]
 
 ### Functions
 
 Functions can generate content. They are typically followed by arguments, which appear within parenthesis placed directly after the function call. Even if no argument is present, the function will still have a `()` parenthesis placed directly after it.
 
-```
+[prism classes="language-twig line-numbers"]
 {% if date(cookie.created_at) < date('-2days') %}
     {# Eat it! #}
 {% endif %}
-```
+[/prism]
 
 ## Resources
 
@@ -142,3 +142,4 @@ Functions can generate content. They are typically followed by arguments, which 
 * [Twig for Developers](http://twig.sensiolabs.org/doc/api.html)
 * [6 Minute Video Introduction to Twig](http://www.dev-metal.com/6min-video-introduction-twig-php-templating-engine/)
 * [Introduction to Twig](http://www.slideshare.net/markstory/introduction-to-twig)
+* [Twig: The Basics (free intro to paid course)](https://knpuniversity.com/screencast/twig/basics)

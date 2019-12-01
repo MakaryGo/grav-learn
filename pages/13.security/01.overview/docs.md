@@ -6,11 +6,11 @@ taxonomy:
 
 If you discover a possible security issue related to Grav or one of its extensions, please send an email to the core team at [contact@getgrav.org](mailto:contact@getgrav.org) and we'll address it as soon as possible.
 
-Issues should not be publicly disclosed - including on GitHub, Slack, or the forum - before the core team has had a chance to examine it and contact the relevant parties to solve it. Also, if the issue is not a potential threat for the users of Grav, it should probably be submitted [as an issue](https://github.com/getgrav/grav/blob/develop/CONTRIBUTING.md#bug-reports) instead. If you are unsure, get in touch and we'll help you figure out where the report belongs.
+Issues should not be publicly disclosed - including on GitHub, Discord, or the Discourse forum - before the core team has had a chance to examine it and contact the relevant parties to solve it. Also, if the issue is not a potential threat for the users of Grav, it should probably be submitted [as an issue](https://github.com/getgrav/grav/blob/develop/CONTRIBUTING.md#bug-reports) instead. If you are unsure, get in touch and we'll help you figure out where the report belongs.
 
 ## Submitting a report
 
-When you have discovered a potential vulnerability in Grav's core or in one of its extensions, it is advisable that you follow due dilligence in reporting it:
+When you have discovered a potential vulnerability in Grav's core or in one of its extensions, it is advisable that you follow due diligence in reporting it:
 
 1. Include the **version numbers** of Grav and any installed extensions, as well as **which component** the issue relates to.
 2. Describe the vulnerability in a **detailed and concise manner**, so that less time is spent on searching for its source.
@@ -41,4 +41,4 @@ There are five levels of risk involved with Grav as a software:
 - Less Critical
 - Not Critical
 
-These are calculated based on the "[Common Misuse Scoring System](https://www.nist.gov/news-events/news/2012/07/software-features-and-inherent-risks-nists-guide-rating-software)" (CMSS) by the [National Institute of Standards and Technology](https://www.nist.gov/) (NIST). For lack of a easily available calculator for Grav, use Drupal's [RiskCalc](https://security.drupal.org/riskcalc) ([notes](https://www.mydropwizard.com/blog/understanding-drupal-security-advisories-risk-calculator)).
+These are calculated based on the "[Common Misuse Scoring System](https://www.nist.gov/news-events/news/2012/07/software-features-and-inherent-risks-nists-guide-rating-software)" (CMSS) by the [National Institute of Standards and Technology](https://www.nist.gov/) (NIST). For lack of an easily available calculator for Grav, use Drupal's [RiskCalc](https://security.drupal.org/riskcalc) ([notes](https://www.mydropwizard.com/blog/understanding-drupal-security-advisories-risk-calculator)).
